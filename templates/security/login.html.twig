@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+<form method="post">
+    <div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 bg-yellow-400">
+        <div class="max-w-md w-full space-y-8">
+            <div>
+                <img class="  w-24" src="https://txt.1001fonts.net/img/txt/dHRmLjQ0LmU0NTQyMS5jR0YwYUEsLC4w/rolling-beat-personal-use.regular.png" alt="Path">
+
+            </div>
+        </div>
+    </div>
+</form>
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+            <div class="loginpage">
+    <div class="container-xl ">
+        <div class="row">
+            <section class="col-12">
+                <h1 ><p class="font-weight-bold">Log in and start sharing</p></h1>
+                <p>Don't have an account? <a href="login.html.twig">Sign Up</a></p>
+                <h5>Log in with:</h5>
+            </section>
+        </div>
+    </div>
+            </div>
+
+                   <div class="container-xl">
+                    <div class="social-media">
+                        <div class="facebook d-inline-block  text-white">
+                            <a href="https://tr-tr.facebook.com/"><i class="fab fa-facebook"></i></a>
+                        </div>
+                        <div class="google d-inline-block ">
+                            <a href="https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?nonce=344f9116-9ee9-4fb7-bf64-5ea5081a8168&prompt=consent%20select_account&state=e24a0358-e38b-4193-8715-7d0a728f0cd1&redirect_uri=https%3A%2F%2Fbitly.com%2Fa%2Fadd_google_account&response_type=code&client_id=489890094529-ueegekuf9mubvv4sc6bh57op2rkjok62.apps.googleusercontent.com&scope=openid%20profile%20email&display=page&flowName=GeneralOAuthFlow"><i class="fab fa-google"></i></a>
+
+                        </div>
+                        <div class="twitter d-inline-block  text-white">
+                            <a href="https://twitter.com/?lang=tr"><i class="fab fa-twitter"></i></a>
+                        </div>
+                        <div class="apple d-inline-block  text-white">
+                            <a href="https://appleid.apple.com/auth/authorize?nonce=924f3d67-eb11-408d-b405-fd2fe2d85e24&state=f79fd768-cddb-4cc1-87c5-75ffd028e92e&redirect_uri=https%3A%2F%2Fbitly.com%2Fa%2Fadd_apple_account&response_type=code+id_token&client_id=com.bitly.app&scope=email+name&response_mode=form_post"><i class="fab fa-apple"></i></a>
+                        </div>
+                    </div>
+                   </div>
+
+
+
+
+
+
+    <div class =container-sm>
+        <br>
+        <label for="inputEmail">Email address or Username</label>
+        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
+        <label for="inputPassword">Password</label>
+        <input type="password" name="password" id="inputPassword" class="form-control" required>
+
+        <input type="hidden" name="_csrf_token"
+               value="{{ csrf_token('authenticate') }}"
+        >
+    </div>
+
+
+    {#
+        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+        See https://symfony.com/doc/current/security/remember_me.html
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> Remember me
+            </label>
+        </div>
+    #}
+
+    <div class="container-lg">
+        <br><br>
+        <button class="btn btn-primary btn-lg btn-block" type="submit">
+            Log in
+        </button>
+    </div>
+
+
+
+{% endblock %}

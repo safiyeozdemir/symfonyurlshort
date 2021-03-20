@@ -1,0 +1,108 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+
+{% block header %}
+    {% include 'inc/header.html.twig' %}
+{% endblock %}
+
+{% block body %}
+
+
+        <section class="banner">
+            <div class="container">
+                <div class="col w-50p">
+                    <h1>Short links, big results</h1>
+                    <p>A URL shortener built with powerful tools to
+                        help you grow and protect your brand.
+                    </p>
+                    <a href="/signup" class="button button-primary">Get started for free</a>
+                </div>
+                <div class="col w-50p">
+                    <img src="https://docrdsfx76ssb.cloudfront.net/static/1615406718/pages/wp-content/uploads/2020/05/illo-mobile-810x480-1.jpg"/>
+                </div>
+            </div>
+        </section>
+
+
+
+        <div class="url-form">
+            <div class="container row">
+
+                <form action="/url/create" method="post" onsubmit="return createShortUrl()">
+                    <input id="urlinput" type="text" name="url" placeholder="Shorten your link" />
+                    <button id="shortenButton" class="button button-primary" type="submit">Shorten</button>
+                </form>
+
+                <div class="url-form-terms">
+                    By clicking SHORTEN, you are agreeing to Path Shortener’s
+                    <a href="/terms">Terms of Service</a> and <a href="/privacy">Privacy Policy</a>
+                </div>
+
+                <div class="flash-messages">
+                    <div class="form-error"></div>
+                    <div class="form-success"></div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <section class="features">
+            <div class="container row">
+                <h3 class="features-title">The link shortener that has your brand’s back</h3>
+                <p class="features-description">
+                    Your brand wasn’t built to be hidden. Help it stand out with branded
+                    links that drive 34% more clicks.
+                </p>
+
+                <div class="feature-rows">
+                    <div class="feature">
+                        <img src="https://docrdsfx76ssb.cloudfront.net/static/1615406718/pages/wp-content/uploads/2019/08/Homepage-Branded-Links-Illustration-1.png" />
+                        <h3>Inspire trust</h3>
+                        <p>
+                            With more clicks comes increased brand recognition and consumer trust in your
+                            communications—which in turn inspires even more engagement with your links.
+                            (It’s a wonderful cycle.)
+                        </p>
+                    </div>
+
+                    <div class="feature">
+                        <img src="https://docrdsfx76ssb.cloudfront.net/static/1615406718/pages/wp-content/uploads/2019/08/Homepage-Branded-Links-Illustration-2.png">
+                        <h3>Boost results</h3>
+                        <p>
+                            On top of better deliverability and click-through, rich link-level data gives you
+                            crucial insight into your link engagement so your team can make smarter decisions
+                            around its content and communications.
+                        </p>
+                    </div>
+
+                    <div class="feature">
+                        <img src="https://docrdsfx76ssb.cloudfront.net/static/1615406718/pages/wp-content/uploads/2019/08/Homepage-Branded-Links-Illustration-3.png">
+                        <h3>Gain control</h3>
+                        <p>
+                            Take credit for your content and learn more about how it’s consumed by enabling
+                            auto-branding—a feature that ensures your brand remains in any link someone
+                            shortens pointing to your website.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section class="happy-customers">
+            <div class="container">
+
+            </div>
+        </section>
+
+    </div>
+{% endblock %}
+
+
+{% block footer %}
+    {% include 'inc/footer.html.twig' %}
+{% endblock %}
